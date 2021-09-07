@@ -8,7 +8,7 @@
                 <a href="" target="_blank" rel="noopener"> <router-link to="/register"><h6>Register</h6></router-link> </a>
             </li>
            <li class="nav-item active ">
-               <a href="" target="_blank" rel="noopener">    <router-link to="/login"><h6>User</h6></router-link></a>
+               <a href="" target="_blank" rel="noopener">    <router-link to="/user"><h6>User</h6></router-link></a>
            </li>
             <li class="nav-item active ">
                <a href="" target="_blank" rel="noopener">    <router-link to="/about"><h6>About</h6></router-link></a>
