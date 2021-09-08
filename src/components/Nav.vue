@@ -2,7 +2,7 @@
   <div class="navbar-collapse container d-flex justify-content-around shadow rounded" id="navbar" >
     <ul class="">
             <li class="nav-item active float-left">
-                <a href="" target="_blank" rel="noopener"> <router-link to="/"><h6>Home</h6></router-link> </a>
+                <a href="" target="_blank" rel="noopener" active> <router-link  to="/"><h6>Home</h6></router-link> </a>
             </li>
             <li class="nav-item active">
                 <a href="" target="_blank" rel="noopener"> <router-link to="/register"><h6>Register</h6></router-link> </a>
@@ -50,6 +50,15 @@ li {
 }
 a {
   color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+}
+
+a:active {
+  background-color: yellow;
+  color: blueviolet;
 }
 #search{
 }
@@ -57,5 +66,11 @@ a {
   background-color: rgb(30, 55, 63);
   padding: 1%;
 }
+
+  .router-link-active,
+   .router-link-exact-active {
+   background-color: indianred;
+   cursor: pointer;
+ }
 </style>
 

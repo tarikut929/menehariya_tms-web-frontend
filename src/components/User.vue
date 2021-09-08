@@ -19,7 +19,11 @@
             <td  style="  text-align: left;width:200px">Tariku</td>
             <td  style="  text-align: left; width:200px">WoldeMichael</td>
             <td  style="  text-align: left; width:200px"></td>
-            <td  style="  text-align: right; width:400px;"><button class="btn btn-success mybutton">edit</button></td>
+            <td  style="  text-align: right; width:400px;">
+               <router-link to="/editUser"> 
+                    <button class="btn btn-success mybutton">edit</button>
+               </router-link>
+             </td>
         </tr>
       </table>
   </button>
@@ -104,25 +108,5 @@ export default{
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

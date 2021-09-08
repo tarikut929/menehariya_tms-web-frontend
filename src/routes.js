@@ -4,6 +4,9 @@ import About from './components/About.vue';
 import Login from './components/Login.vue';
 import Register from './components/Register.vue';
 import User from './components/User.vue';
+import EditUser from './components/EditUser.vue';
+
+
 
 
 const routes = [
@@ -31,6 +34,11 @@ const routes = [
         path: "/user",
         name: "user",
         component: User
+    },
+    {
+        path: "/editUser",
+        name: "editUser",
+        component: EditUser
     },
 ]
 

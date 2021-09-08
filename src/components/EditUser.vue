@@ -19,6 +19,9 @@
              </label>
         </div>
     </li>
+    <li>
+        <button class="btn btn-danger">Delete User</button>
+    </li>
 </ul>
 
 <div id="user_info">
