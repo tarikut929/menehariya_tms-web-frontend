@@ -2,7 +2,7 @@
   <div class="navbar-collapse container d-flex justify-content-around shadow rounded" id="navbar" >
     <ul class="">
             <li class="nav-item active float-left">
-                <a href="" target="_blank" rel="noopener" active> <router-link  to="/"><h6>Home</h6></router-link> </a>
+                <a href="" target="_blank" rel="noopener" class="active"> <router-link  to="/"><h6>Home</h6></router-link> </a>
             </li>
             <li class="nav-item active">
                 <a href="" target="_blank" rel="noopener"> <router-link to="/register"><h6>Register</h6></router-link> </a>
@@ -53,10 +53,10 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: red;
+  color: rgb(83, 166, 243);
 }
 
-a:active {
+a.active {
   background-color: yellow;
   color: blueviolet;
 }
@@ -67,10 +67,5 @@ a:active {
   padding: 1%;
 }
 
-  .router-link-active,
-   .router-link-exact-active {
-   background-color: indianred;
-   cursor: pointer;
- }
 </style>
 

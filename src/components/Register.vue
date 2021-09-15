@@ -1,6 +1,6 @@
 <template>
 <div id="register" class="shadow rounded">
-<form action="">
+<form action="" @submit.prevent="handleSubmit">
 
 <ul class="p-3 float-right">
     <li>
@@ -22,30 +22,35 @@
 </ul>
 
 <div id="user_info">
+   <div class="" style="color:red" v-if="error">
+     {{ error }}
+    </div>
 
     <div class="form-group ">
      <label class="float-start labels pb-1"><h6>First Name</h6></label>
-     <input type="text" class="form-control  rounded" placeholder="first Name"/>
+     <input type="text" class="form-control  rounded" placeholder="first Name" v-model="fname"/>
     </div>
+
+  
     <div class="form-group  labels">
         <label class="float-start pb-1 pt-1" ><h6>Last Name</h6></label>
-        <input type="text" class="form-control  rounded" placeholder="last name"> 
+        <input type="text" class="form-control  rounded" placeholder="last name" v-model="lname"> 
     </div>
     <div class="form-group  labels">
         <label class="float-start pb-1 pt-1" ><h6>User Name</h6></label>
-        <input type="text" class="form-control  rounded" placeholder="user name"> 
+        <input type="text" class="form-control  rounded" placeholder="user name" v-model="username"> 
     </div>
     <div class="form-group  labels">
         <label class="float-start pb-1 pt-1" ><h6>Email</h6></label>
-        <input type="email" class="form-control  rounded" placeholder="email"> 
+        <input type="email" class="form-control  rounded" placeholder="email" v-model="email"> 
     </div>
     <div class="form-group  labels">
         <label class="float-start pb-1 pt-1" ><h6>Password</h6></label>
-        <input type="password" class="form-control  rounded" placeholder="password"> 
+        <input type="password" class="form-control  rounded" placeholder="password" v-model="password"> 
     </div>
      <div class="form-group  labels">
         <label class="float-start pb-1 pt-1" ><h6>Phone</h6></label>
-        <input type="tel" class="form-control  rounded" placeholder="phone number "> 
+        <input type="tel" class="form-control  rounded" placeholder="phone number " v-model="phone"> 
     </div>
     <ul class="pt-1 float-right">
     <li>
@@ -67,24 +72,84 @@
 </ul>
     <div class="form-group  labels">
         <label class="float-start pb-1" ><h6>ID Number</h6></label>
-        <input type="text" class="form-control  rounded" placeholder="ID"> 
+        <input type="text" class="form-control  rounded" placeholder="ID" v-model="idnumber"> 
     </div>
 
     <div class="form-group  labels">
         <label class="float-start pb-1 pt-1" ><h6>Work Place</h6></label>
-        <input type="text" class="form-control  rounded" placeholder="Work Place"> 
+        <input type="text" class="form-control  rounded" placeholder="Work Place" v-model="workplace"> 
     </div>
     <button class="btn btn-primary btn-block mt-2 btn-register"><h6>Register</h6></button>
 </div>
 </form>
 </div>
 </template>
+
+
+
+
+
 <script>
-export default{
-    name: 'Register'
-}
+import axios from 'axios';
+export default {
+    name: 'Register',
+  
+  data(){
+        return{
+           
+                fname: '',
+                lname:'',
+                username:'',
+                email: '',
+                password:'',
+                phone:'',
+                gender: '',
+                idnumber: '',
+                workplace: '',
+                
+             
+        }
+    },
+     methods:{
+        submitForm(){
+            axios.post('/contact', this.form)
+                 .then(() => {
+                     //Perform Success Action
+                 })
+                 .catch(() => {
+                     // error.response.status Check status code
+                 }).finally(() => {
+                     //Perform action in always
+                 });
+        },
+        handleSubmit(){
+                        
+            const data = {
+                fname : this.fname,
+                lname : this.lname,
+                username : this.username,
+                email : this.email,
+                password : this.password,
+                phone : this.phone,
+                gender : this.gender,
+                idnumber : this.idnumber,
+                workplace : this.workplace
+
+                
+            }            
+            console.log(data);
+        }
+    }
+};
+
+
 
 </script>
+
+
+
+
+
 <style scoped>
 #register{
     width: 65%;

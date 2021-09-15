@@ -1,6 +1,4 @@
 <template>
-
-
 <div id="register" class="shadow rounded">
 
 <div class="dropdown " style="text-align: left;">
@@ -12,10 +10,10 @@
 </div>
 
 <div class="list-group">
-      <button type="button" class="list-group-item list-group-item-action active"  aria-current="true">
+    <button v-for="post in posts" v-bind:key="post.id" type="button" class="list-group-item list-group-item-action "  aria-current="true">
     <table style="">
         <tr>
-            <td style="  text-align: left; width:30px">1</td>
+            <td style="  text-align: left; width:30px">{{ post.id }}</td>
             <td  style="  text-align: left;width:200px">Tariku</td>
             <td  style="  text-align: left; width:200px">WoldeMichael</td>
             <td  style="  text-align: left; width:200px"></td>
@@ -38,7 +36,7 @@
         </tr>
       </table>
   </button>
-  <button type="button" class="list-group-item list-group-item-action">
+  <button type="button" class="list-group-item list-group-item-action active">
       <table style="">
         <tr>
             <td style="  text-align: left; width:30px">3</td>
@@ -76,10 +74,28 @@
 
 </template>
 <script>
-export default{
-    name: 'User'
-}
+export default {
+  data() {
+    return {
+      posts: [],
+    };
+  },
 
+  methods: {
+    async getData() {
+      try {
+        let response = await fetch("http://jsonplaceholder.typicode.com/posts");
+        this.posts = await response.json();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+
+  created() {
+    this.getData();
+  },
+};
 </script>
 <style scoped>
 
@@ -108,5 +124,3 @@ export default{
 }
 
 </style>
-
-
